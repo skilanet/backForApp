@@ -12,10 +12,11 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
-        try {
-            Console.main();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Console.main();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+
     }
 }
