@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:wordsdb
+
+  h2:
+    console:
+      enable: true
+
+  liquibase:
+    changelog: classpath:db.changelog/db.changelog-master.xml
+
+  jpa:
+    generate-ddl: false
+
+    hibernate:
+      ddl: none
+
+    show-sql: false
+

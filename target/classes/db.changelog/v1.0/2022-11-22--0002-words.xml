@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="2022-11-22--0002-word" author="SFiloniuk">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="words"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="words">
+            <column name="id"
+                    type="NUMERIC(19,0)"
+                    autoIncrement="true">
+                <constraints nullable="false"
+                             primaryKey="true"/>
+            </column>
+            <column name="word"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="translate"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="chapter_id"
+                    type="NUMERIC(19,0)">
+                <constraints nullable="false"
+                             foreignKeyName="fk_words_chapter"
+                             references="chapter(id)"
+                             deleteCascade="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
