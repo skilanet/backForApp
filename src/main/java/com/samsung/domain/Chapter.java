@@ -23,6 +23,6 @@ public class Chapter {
     @Column(name = "chapter")
     private String chapter;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "chapter")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "chapter", cascade = CascadeType.ALL)
     private List<Words> wordsList;
 }
